@@ -55,7 +55,7 @@ def do_static(parser, token):
 
     Examples::
 
-        {% static "myapp/css/base.css" "http://remote.url/css/base.css" %}
+        {% static "myapp/css/base.css" http://remote.url/css/base.css %}
 
     """
     return StaticFilesNode.handle_token(parser, token)
