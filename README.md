@@ -9,6 +9,7 @@ Usage
 
 ```html
 
-{% load staticfiles2 %}
+{% load staticfileschooser %}
 <link rel="stylesheet" type="text/css" href="{% static 'local' http://remote.url %}">
+
 ```
