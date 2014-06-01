@@ -11,7 +11,7 @@ class StaticFilesProductionTestCase(TestCase):
     def test_with_param(self):
         """static tag should return remote url on debug false"""
         template = Template(
-            "{% load staticfiles2 %}{% static 'local/path' http://remote.url %}"
+            "{% load staticfileschooser %}{% static 'local/path' http://remote.url %}"
         )
         c = Context({})
         self.assertEqual(template.render(c), "http://remote.url")
@@ -19,7 +19,7 @@ class StaticFilesProductionTestCase(TestCase):
     def test_without_param(self):
         """static tag should return local path in absense of remote url"""
         template = Template(
-            "{% load staticfiles2 %}{% static 'local/path' %}"
+            "{% load staticfileschooser %}{% static 'local/path' %}"
         )
         c = Context({})
         expected = settings.STATIC_URL + 'local/path'
@@ -32,7 +32,7 @@ class StaticFilesDevelopmentTestCase(TestCase):
     def test_with_param(self):
         """static tag should return remote url on debug false"""
         template = Template(
-            "{% load staticfiles2 %}{% static 'local/path' http://remote.url %}"
+            "{% load staticfileschooser %}{% static 'local/path' http://remote.url %}"
         )
         c = Context({})
         expected = settings.STATIC_URL + 'local/path'
@@ -42,7 +42,7 @@ class StaticFilesDevelopmentTestCase(TestCase):
     def test_without_param(self):
         """static tag should return remote url on debug false"""
         template = Template(
-            "{% load staticfiles2 %}{% static 'local/path' %}"
+            "{% load staticfileschooser %}{% static 'local/path' %}"
         )
         c = Context({})
         expected = settings.STATIC_URL + 'local/path'
